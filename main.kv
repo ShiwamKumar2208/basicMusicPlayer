@@ -1,0 +1,30 @@
+<MyGrid>
+    size: self.size
+    GridLayout:
+        shuffle: 'shuffle'
+        prev: 'prev'
+        next: 'next'
+        pauseButton: 'pause'
+        cols: 1
+        size: root.width, root.height
+        Label:
+            text: "Song is Playing"
+
+        GridLayout:
+            cols:4
+            Button:
+                id: "shuffle"
+                text:"Shuffle"
+                on_press: root.shuffler()
+            Button:
+                id: "prev"
+                text:"Previous"
+                on_press: root.prevPressed()
+            Button:
+                id: "pause"
+                text:"Play"
+                on_press: root.pauseOrPlay()
+            Button:
+                id: "next"
+                text:"Next"
+                on_press:root.nextPressed()
