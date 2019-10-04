@@ -14,17 +14,33 @@
             cols:4
             Button:
                 id: "shuffle"
-                text:"Shuffle"
                 on_press: root.shuffler()
+                background_color: 1,1,1,1.0
+                AsyncImage:
+                    source: 'icons/shuffle.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
             Button:
                 id: "prev"
-                text:"Previous"
                 on_press: root.prevPressed()
+                AsyncImage:
+                    source: 'icons/prev.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
             Button:
                 id: "pause"
-                text:"Play"
                 on_press: root.pauseOrPlay()
+                AsyncImage:
+                    source: 'icons/play.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
             Button:
                 id: "next"
-                text:"Next"
                 on_press:root.nextPressed()
+                AsyncImage:
+                    source: 'icons/next.png'
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
