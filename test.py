@@ -26,11 +26,14 @@ class MyGrid(GridLayout):
                 self.nextSong = random.choice(self.songList)
             else:
                 pass
-            pygame.mixer.music.queue(self.nextSong)
+            pygame.mixer.music.queue(f'music/{self.nextSong}')
             self.shuffledFlag = False
 
         else:
-            self.nextSong = self.songList[self.songList.index(self.currentSong)+1]
+            try:
+                self.nextSong = self.songList[self.songList.index(self.currentSong)+1]
+            except IndexError:
+                self.nextSong = self.songList[0]
             self.shuffledFlag = True
 
     def pauseOrPlay(self):
@@ -42,7 +45,10 @@ class MyGrid(GridLayout):
             if self.shuffledFlag:
                 pygame.mixer.music.queue(f'music/{random.choice(self.songList)}')
             else:
-                nextSongToPlay = self.songList[(self.songList.index(self.currentSong))+1]
+                try:
+                    nextSongToPlay = self.songList[(self.songList.index(self.currentSong))+1]
+                except IndexError:
+                    nextSongToPlay = self.songList[0]
                 pygame.mixer.music.queue(f'music/{nextSongToPlay}')
             self.play = False
 
@@ -63,7 +69,10 @@ class MyGrid(GridLayout):
             if pygame.mixer_music.get_busy():
                 pass
         else:
-            songToLoad = self.songList[self.songList.index(self.currentSong)+1]
+            try:
+                songToLoad = self.songList[self.songList.index(self.currentSong)+1]
+            except IndexError:
+                songToLoad = self.songList[0]
             self.currentSong = songToLoad
             pygame.mixer.music.load(f'music/{self.currentSong}')
             pygame.mixer.music.play(0)
