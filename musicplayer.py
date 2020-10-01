@@ -1,3 +1,4 @@
+# an amazing project made when bored
 from kivy.app import App
 from kivy.uix.gridlayout import GridLayout
 from kivy.properties import ObjectProperty
